@@ -43,8 +43,9 @@ namespace Collections
                 Console.WriteLine(item);
             }
 
-
+            //add deal method
         }
+    
     
     }
 }
