@@ -6,7 +6,8 @@ using System.Text;
 namespace Collections
 {
     //the deck will grow and shrink dynamically
-    class Deck<T> : IEnumerable<T>
+    //Deck is the collection, similiar to MyContainer from Demo
+    public class Deck<T> : IEnumerable<T>
     {
         T[] cards = new T[10];
         int currentIndex = 0;

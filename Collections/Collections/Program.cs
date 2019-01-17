@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using Collections;
 
 namespace Collections
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
 
-            Card<string> card = new Card<string>();
-            card.Add("One Hearts");
+            //set up deck of cards
+            Deck<Card> deck = new Deck<Card>();
+
+            
            
         }
     
