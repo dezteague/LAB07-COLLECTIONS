@@ -11,19 +11,33 @@ namespace Collections
     {
         T[] cards = new T[10];
         int currentIndex = 0;
+        int counter = 0;
 
         public void Add(T item)
         {
             if (currentIndex > cards.Length -1)
             {
-                Array.Resize(ref cards, cards.Length * 2);
+                Array.Resize(ref cards, cards.Length + 1);
             }
             //add in items to the array
             cards[currentIndex] = item;
             currentIndex++;
+            //increment counter when card is added
+            counter++;
         }
 
-        
+        public void Remove(T item)
+        {
+            for (int i = 0; i < cards.Length; i++)
+            {
+                if (item==cards[i])
+                {
+                    counter--;
+                }
+            }
+        }
+
+
         public IEnumerator<T> GetEnumerator()
         {
             for (int i = 0; i < currentIndex; i++)
