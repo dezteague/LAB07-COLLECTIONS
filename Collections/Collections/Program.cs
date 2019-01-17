@@ -8,7 +8,10 @@ namespace Collections
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Let's play!");
+            Console.WriteLine("");
+            Console.WriteLine("Check out your cards:");
+            Console.WriteLine("");
 
             //set up deck of cards
             Card cardOne = new Card();
@@ -40,7 +43,7 @@ namespace Collections
 
             foreach (Card item in deck)
             {
-                Console.WriteLine(item);
+                Console.WriteLine($"{item.value} {item.suit}");
             }
 
             //add deal method
