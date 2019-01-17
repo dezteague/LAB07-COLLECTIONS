@@ -40,7 +40,7 @@ namespace Collections
 
             foreach (Card item in deck)
             {
-                Console.WriteLine(item);
+                Console.WriteLine($"{item.value} {item.suit}");
             }
 
             //add deal method
