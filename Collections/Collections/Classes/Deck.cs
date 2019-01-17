@@ -9,7 +9,7 @@ namespace Collections
     //Deck is the collection, similiar to MyContainer from Demo
     public class Deck<T> : IEnumerable<T>
     {
-        T[] cards = new T[10];
+        public T[] cards = new T[10];
         int currentIndex = 0;
         int counter = 0;
 
@@ -30,11 +30,17 @@ namespace Collections
         {
             for (int i = 0; i < cards.Length; i++)
             {
-                if (item==cards[i])
+                
                 {
+                    Array.Resize(ref cards, cards.Length - 1);
                     counter--;
                 }
             }
+        }
+
+        public int Count()
+        {
+            return counter;
         }
 
 
