@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Collections.Classes
+namespace Collections
 {
     
     class Card
