@@ -38,6 +38,11 @@ namespace Collections
             deck.Add(cardFour);
             deck.Add(cardFive);
 
+            foreach (Card item in deck)
+            {
+                Console.WriteLine(item);
+            }
+
 
         }
     
