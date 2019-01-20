@@ -11,31 +11,28 @@ namespace Collections
     {
         public T[] cards = new T[10];
         int currentIndex = 0;
-        int counter = 0;
+        
 
         public void Add(T item)
         {
-            if (currentIndex > cards.Length -1)
+            if (currentIndex == cards.Length)
             {
-                Array.Resize(ref cards, cards.Length + 1);
+                Array.Resize(ref cards, cards.Length * 2);
             }
             //add in items to the array
             cards[currentIndex] = item;
-            currentIndex++;
             //increment counter when card is added
-            counter++;
+            currentIndex++;
         }
 
-        public void Remove(T item)
+        public void Remove(int item)
         {
-            for (int i = 0; i < cards.Length; i++)
+            for (int i = item; i < currentIndex; i++)
             {
-                
-                {
-                    Array.Resize(ref cards, cards.Length - 1);
-                    counter--;
-                }
+                cards[i] = cards[i + 1];
             }
+            cards[currentIndex] = default;
+            currentIndex--; 
         }
 
         public int Count()
