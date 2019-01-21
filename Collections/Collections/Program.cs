@@ -109,9 +109,19 @@ namespace Collections
                 }
             }
 
+            Console.WriteLine("");
             Console.WriteLine("Removing Ten of Hearts");
 
             Card removefromdeck = Deck.Remove(cardTen);
+
+            Console.WriteLine("");
+            Console.WriteLine($"Number of cards left: {Deck.Count()}");
+            Console.WriteLine("");
+
+            foreach (Card item in Deck)
+            {
+                Console.WriteLine($"{item.Value} of {item.suit}");
+            }
         }
     }
 }

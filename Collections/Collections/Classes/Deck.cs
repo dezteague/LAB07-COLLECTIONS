@@ -39,9 +39,11 @@ namespace Collections.Classes
             {
                 if (carddeck[i].Equals(item))
                 {
+                    //find the item that will be deleted
                     deletedcard = carddeck[i];
                     while (i < currentIndex - 1)
                     {
+                        //reset the deck array
                         carddeck[i] = carddeck[i + 1];
                         i++;
                     }
