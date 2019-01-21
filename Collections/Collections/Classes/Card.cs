@@ -10,7 +10,7 @@ namespace Collections.Classes
         //card properties
         public Suit CardSuit { get; set; }
         public CardValue Value { get; set; }
-        public Suit suit { get; internal set; }
+        public Suit suit { get; set; }
 
         //card constructor
         public Card(CardValue value, Suit suit)
