@@ -33,5 +33,25 @@ namespace CollectionsTest
 
             Assert.Equal(Diamonds, cardTwo.suit);
         }
+
+        [Fact]
+        public void RemoveCardTest()
+        {
+            Card cardThree = new Card();
+            cardThree.Value = Card.CardValue.Three;
+            cardThree.suit = Card.Suit.Hearts;
+
+            Card cardFour = new Card();
+            cardFour.Value = Card.CardValue.Four;
+            cardFour.suit = Card.Suit.Spades;
+
+            Deck<Card> Deck = new Deck<Card>();
+            Deck.Add(cardThree);
+            Deck.Add(cardFour);
+
+            Deck.Remove(cardFour);
+
+            Assert.DoesNotContain(cardFour, Deck);
+        }
     }
 }
