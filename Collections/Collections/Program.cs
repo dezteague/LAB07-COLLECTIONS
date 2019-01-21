@@ -113,13 +113,12 @@ namespace Collections
 
             //Remove one card from the deck
             Console.WriteLine("");
-            Console.WriteLine("Removing Ten of Hearts");
 
             //card can only be removed if it actually exists in the deck
             Card removefromdeck = Deck.Remove(cardTen);
             if (removefromdeck != null)
             {
-                Console.WriteLine($"{removefromdeck.Value} of {removefromdeck.suit}");
+                Console.WriteLine($"Removing {removefromdeck.Value} of {removefromdeck.suit}");
 
             }
 
