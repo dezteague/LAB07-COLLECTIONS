@@ -1,46 +1,68 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 
-namespace Collections
+namespace Collections.Classes
 {
     //the deck will grow and shrink dynamically
     //Deck is the collection, similiar to MyContainer from Demo
     public class Deck<T> : IEnumerable<T>
     {
-        public T[] cards = new T[10];
+        public T[] carddeck = new T[13];
         int currentIndex = 0;
-        int counter = 0;
-
+        
+        /// <summary>
+        /// Add a card to the deck
+        /// </summary>
+        /// <param name="item"></param>
         public void Add(T item)
         {
-            if (currentIndex > cards.Length -1)
+            if (currentIndex == carddeck.Length)
             {
-                Array.Resize(ref cards, cards.Length + 1);
+                Array.Resize(ref carddeck, carddeck.Length * 2);
             }
             //add in items to the array
-            cards[currentIndex] = item;
-            currentIndex++;
+            carddeck[currentIndex] = item;
             //increment counter when card is added
-            counter++;
+            currentIndex++;
         }
 
-        public void Remove(T item)
+        /// <summary>
+        /// Remove a card from the deck
+        /// </summary>
+        /// <param name="item"></param>
+        public T Remove(T item)
         {
-            for (int i = 0; i < cards.Length; i++)
+            T deletedcard = default(T);
+
+            for (int i = 0; i < currentIndex; i++)
             {
-                
+                if (carddeck[i].Equals(item))
                 {
-                    Array.Resize(ref cards, cards.Length - 1);
-                    counter--;
+                    //find the item that will be deleted
+                    deletedcard = carddeck[i];
+                    while (i < currentIndex - 1)
+                    {
+                        //reset the deck array
+                        carddeck[i] = carddeck[i + 1];
+                        i++;
+                    }
+                    carddeck[i] = default(T);
+
+                    currentIndex--;
+                    return deletedcard;
                 }
             }
+            throw new Exception("card does not exist in the deck");
         }
 
+        /// <summary>
+        /// Count the cards in the deck
+        /// </summary>
+        /// <returns></returns>
         public int Count()
         {
-            return counter;
+            return currentIndex;
         }
 
 
@@ -49,7 +71,7 @@ namespace Collections
             for (int i = 0; i < currentIndex; i++)
             {
                 //return each item one by one
-                yield return cards[i];
+                yield return carddeck[i];
             }
         }
 

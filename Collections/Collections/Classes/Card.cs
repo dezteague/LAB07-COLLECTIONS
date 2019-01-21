@@ -2,17 +2,50 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Collections
+namespace Collections.Classes
 {
     
     public class Card
     {
         //card properties
+        public Suit CardSuit { get; set; }
+        public CardValue Value { get; set; }
         public Suit suit { get; set; }
-        public CardValue value { get; set; }
+
+        //card constructor
+        public Card(CardValue value, Suit suit)
+        {
+            Value = value;
+            CardSuit = suit;
+        }
+
+        public Card()
+        {
+        }
 
         //enums act as a class within the card class
-        public enum Suit { Hearts, Spades, Diamonds, Clubs}
-        public enum CardValue { one, two, three, four, five, six, seven, eight, nine, ten, jack, queen, king, ace}
+        public enum Suit
+        {
+            Hearts,
+            Spades,
+            Diamonds,
+            Clubs
+        }
+        public enum CardValue
+        {
+            Ace,
+            Two,
+            Three,
+            Four,
+            Five,
+            Six,
+            Seven,
+            Eight,
+            Nine,
+            Ten,
+            Jack,
+            Queen,
+            King
+        }
     }
 }

@@ -1,54 +1,137 @@
 ﻿using System;
-using System.Collections.Generic;
-using Collections;
+using Collections.Classes;
 
 namespace Collections
 {
     public class Program
     {
+        public static object Deck { get; set; }
+
         static void Main(string[] args)
         {
-            Console.WriteLine("Let's play!");
-            Console.WriteLine("");
-            Console.WriteLine("Check out your cards:");
+            Console.WriteLine("Cards in the Deck:");
             Console.WriteLine("");
 
             //set up deck of cards
+            Deck<Card> Deck = new Deck<Card>();
+
             Card cardOne = new Card();
-            cardOne.value = Card.CardValue.ace;
+            cardOne.Value = Card.CardValue.Ace;
             cardOne.suit = Card.Suit.Clubs;
 
             Card cardTwo = new Card();
-            cardTwo.value = Card.CardValue.king;
+            cardTwo.Value = Card.CardValue.Two;
             cardTwo.suit = Card.Suit.Diamonds;
 
             Card cardThree = new Card();
-            cardThree.value = Card.CardValue.queen;
+            cardThree.Value = Card.CardValue.Three;
             cardThree.suit = Card.Suit.Hearts;
 
             Card cardFour = new Card();
-            cardFour.value = Card.CardValue.jack;
+            cardFour.Value = Card.CardValue.Four;
             cardFour.suit = Card.Suit.Spades;
 
             Card cardFive = new Card();
-            cardFive.value = Card.CardValue.ten;
+            cardFive.Value = Card.CardValue.Five;
             cardFive.suit = Card.Suit.Diamonds;
 
-            Deck<Card> deck = new Deck<Card>();
-            deck.Add(cardOne);
-            deck.Add(cardTwo);
-            deck.Add(cardThree);
-            deck.Add(cardFour);
-            deck.Add(cardFive);
+            Card cardSix = new Card();
+            cardSix.Value = Card.CardValue.Six;
+            cardSix.suit = Card.Suit.Hearts;
 
-            foreach (Card item in deck)
+            Card cardSeven = new Card();
+            cardSeven.Value = Card.CardValue.Seven;
+            cardSeven.suit = Card.Suit.Clubs;
+
+            Card cardEight = new Card();
+            cardEight.Value = Card.CardValue.Eight;
+            cardEight.suit = Card.Suit.Diamonds;
+
+            Card cardNine = new Card();
+            cardNine.Value = Card.CardValue.Nine;
+            cardNine.suit = Card.Suit.Spades;
+
+            Card cardTen = new Card();
+            cardTen.Value = Card.CardValue.Ten;
+            cardTen.suit = Card.Suit.Hearts;
+
+            Card cardEleven = new Card();
+            cardEleven.Value = Card.CardValue.Jack;
+            cardEleven.suit = Card.Suit.Spades;
+
+            Card cardTwelve = new Card();
+            cardTwelve.Value = Card.CardValue.Queen;
+            cardTwelve.suit = Card.Suit.Clubs;
+
+            Card cardThirteen = new Card();
+            cardThirteen.Value = Card.CardValue.King;
+            cardThirteen.suit = Card.Suit.Diamonds;
+
+            //add cards to the deck
+            Deck.Add(cardOne);
+            Deck.Add(cardTwo);
+            Deck.Add(cardThree);
+            Deck.Add(cardFour);
+            Deck.Add(cardFive);
+            Deck.Add(cardSix);
+            Deck.Add(cardSeven);
+            Deck.Add(cardEight);
+            Deck.Add(cardNine);
+            Deck.Add(cardTen);
+            Deck.Add(cardEleven);
+            Deck.Add(cardTwelve);
+            Deck.Add(cardThirteen);
+
+            foreach (Card item in Deck)
             {
-                Console.WriteLine($"{item.value} {item.suit}");
+                Console.WriteLine($"{item.Value} of {item.suit}");
             }
 
-            //add deal method
+            //deal cards evenly between player 1 and player 2, the rest stays with the dealer
+            Console.WriteLine("");
+            Console.WriteLine("Deal cards:");
+            Console.WriteLine("");
+
+            int counter = 0;
+
+            foreach (Card item in Deck)
+            {
+                counter++;
+                if (counter < 7)
+                { 
+                    Console.WriteLine($"Player 1 cards: {item.Value} of {item.suit}");
+                }
+                else if (counter >= 7 && counter < 13)
+                {
+                    Console.WriteLine($"Player 2 cards: {item.Value} of {item.suit}");
+                }
+                else
+                {
+                    Console.WriteLine($"Dealer cards:  {item.Value} of {item.suit}");
+                }
+            }
+
+            //Remove one card from the deck
+            Console.WriteLine("");
+
+            //card can only be removed if it actually exists in the deck
+            Card removefromdeck = Deck.Remove(cardTen);
+            if (removefromdeck != null)
+            {
+                Console.WriteLine($"Removing {removefromdeck.Value} of {removefromdeck.suit}");
+
+            }
+
+            //show deck counter after removal
+            Console.WriteLine("");
+            Console.WriteLine($"Number of cards left: {Deck.Count()}");
+            Console.WriteLine("");
+
+            //display leftover cards
+            foreach (Card item in Deck)
+            {
+                Console.WriteLine($"{item.Value} of {item.suit}");
+            }
         }
-    
-    
     }
 }
