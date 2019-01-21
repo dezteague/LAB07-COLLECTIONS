@@ -53,5 +53,25 @@ namespace CollectionsTest
 
             Assert.DoesNotContain(cardFour, Deck);
         }
+
+        [Fact]
+        public void CannotRemoveNonexistentCardTest()
+        {
+            Card cardFive = new Card();
+            cardFive.Value = Card.CardValue.Five;
+            cardFive.suit = Card.Suit.Diamonds;
+
+            Deck<Card> Deck = new Deck<Card>();
+            Deck.Add(cardFive);
+
+            Card fakecard = new Card();
+            fakecard.Value = Card.CardValue.Ten;
+            fakecard.suit = Card.Suit.Clubs;
+
+            Exception e = Assert.Throws<Exception>(() => Deck.Remove(fakecard));
+
+
+            Assert.Equal("card does not exist in the deck", e.Message);
+        }
     }
 }
