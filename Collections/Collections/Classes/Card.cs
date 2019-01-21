@@ -10,12 +10,17 @@ namespace Collections.Classes
         //card properties
         public Suit CardSuit { get; set; }
         public CardValue Value { get; set; }
+        public Suit suit { get; internal set; }
 
         //card constructor
         public Card(CardValue value, Suit suit)
         {
             Value = value;
             CardSuit = suit;
+        }
+
+        public Card()
+        {
         }
 
         //enums act as a class within the card class

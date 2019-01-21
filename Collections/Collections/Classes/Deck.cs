@@ -31,15 +31,27 @@ namespace Collections.Classes
         /// Remove a card from the deck
         /// </summary>
         /// <param name="item"></param>
-        public void Remove(int item)
+        public T Remove(T item)
         {
-            for (int i = item; i < currentIndex; i++)
+            T deletedcard = default(T);
+
+            for (int i = 0; i < currentIndex; i++)
             {
-                carddeck[i] = carddeck[i + 1];
+                if (carddeck[i].Equals(item))
+                {
+                    deletedcard = carddeck[i];
+                    while (i < currentIndex - 1)
+                    {
+                        carddeck[i] = carddeck[i + 1];
+                        i++;
+                    }
+                    carddeck[i] = default(T);
+
+                    currentIndex--;
+                    return deletedcard;
+                }
             }
-            //default makes the value of the variable an int
-            carddeck[currentIndex] = default;
-            currentIndex--; 
+            throw new Exception("card does not exist in the deck");
         }
 
         /// <summary>
