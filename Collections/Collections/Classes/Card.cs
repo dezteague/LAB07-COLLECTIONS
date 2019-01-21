@@ -2,14 +2,21 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Collections
+namespace Collections.Classes
 {
     
     public class Card
     {
         //card properties
-        public Suit suit { get; set; }
-        public CardValue value { get; set; }
+        public Suit CardSuit { get; set; }
+        public CardValue Value { get; set; }
+
+        //card constructor
+        public Card(CardValue value, Suit suit)
+        {
+            Value = value;
+            CardSuit = suit;
+        }
 
         //enums act as a class within the card class
         public enum Suit

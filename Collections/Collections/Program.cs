@@ -1,17 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using Collections;
+using Collections.Classes;
 
 namespace Collections
 {
     public class Program
     {
+        public static object Deck { get; set; }
+
         static void Main(string[] args)
         {
             Console.WriteLine("Cards in the Deck:");
             Console.WriteLine("");
 
             //set up deck of cards
+            Deck<Card> Deck = new Deck<Card>();
+
             Card cardOne = new Card();
             cardOne.value = Card.CardValue.Ace;
             cardOne.suit = Card.Suit.Clubs;
@@ -64,25 +67,23 @@ namespace Collections
             cardThirteen.value = Card.CardValue.King;
             cardThirteen.suit = Card.Suit.Diamonds;
 
+            Deck.Add(cardOne);
+            Deck.Add(cardTwo);
+            Deck.Add(cardThree);
+            Deck.Add(cardFour);
+            Deck.Add(cardFive);
+            Deck.Add(cardSix);
+            Deck.Add(cardSeven);
+            Deck.Add(cardEight);
+            Deck.Add(cardNine);
+            Deck.Add(cardTen);
+            Deck.Add(cardEleven);
+            Deck.Add(cardTwelve);
+            Deck.Add(cardThirteen);
 
-            Deck<Card> deck = new Deck<Card>();
-            deck.Add(cardOne);
-            deck.Add(cardTwo);
-            deck.Add(cardThree);
-            deck.Add(cardFour);
-            deck.Add(cardFive);
-            deck.Add(cardSix);
-            deck.Add(cardSeven);
-            deck.Add(cardEight);
-            deck.Add(cardNine);
-            deck.Add(cardTen);
-            deck.Add(cardEleven);
-            deck.Add(cardTwelve);
-            deck.Add(cardThirteen);
-
-            foreach (Card item in deck)
+            foreach (Card item in Deck)
             {
-                Console.WriteLine($"{item.value} {item.suit}");
+                Console.WriteLine($"{item.value}{item.suit}");
             }
 
             Console.WriteLine("");
@@ -91,7 +92,7 @@ namespace Collections
 
             int counter = 0;
 
-            foreach (Card item in deck)
+            foreach (Card item in Deck)
             {
                 counter++;
                 if (counter < 7)
@@ -103,8 +104,14 @@ namespace Collections
                     Console.WriteLine($"Player 2 cards: {item.value} of {item.suit}");
                 }
                 else
+                {
                     Console.WriteLine($"Dealer cards:  {item.value} of {item.suit}");
+                }
             }
+
+            Console.WriteLine("Removing Ten of Hearts");
+
+            Card removefromdeck = Deck.Remove(cardTen);
         }
     }
 }

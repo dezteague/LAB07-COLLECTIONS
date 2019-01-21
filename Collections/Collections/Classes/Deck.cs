@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 
-namespace Collections
+namespace Collections.Classes
 {
     //the deck will grow and shrink dynamically
     //Deck is the collection, similiar to MyContainer from Demo
