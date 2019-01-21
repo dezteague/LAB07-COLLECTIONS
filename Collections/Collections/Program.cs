@@ -104,7 +104,6 @@ namespace Collections
                 }
                 else
                     Console.WriteLine($"Dealer cards:  {item.value} of {item.suit}");
-
             }
         }
     }
