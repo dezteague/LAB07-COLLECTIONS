@@ -31,7 +31,7 @@ namespace CollectionsTest
             Deck<Card> Deck = new Deck<Card>();
             Deck.Add(cardTwo);
 
-            Assert.Equal(Diamonds, cardTwo.Suit);
+            Assert.Equal(Diamonds, cardTwo.suit);
         }
     }
 }
