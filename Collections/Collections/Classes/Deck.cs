@@ -9,35 +9,47 @@ namespace Collections
     //Deck is the collection, similiar to MyContainer from Demo
     public class Deck<T> : IEnumerable<T>
     {
-        public T[] cards = new T[10];
+        public T[] carddeck = new T[13];
         int currentIndex = 0;
         
-
+        /// <summary>
+        /// Add a card to the deck
+        /// </summary>
+        /// <param name="item"></param>
         public void Add(T item)
         {
-            if (currentIndex == cards.Length)
+            if (currentIndex == carddeck.Length)
             {
-                Array.Resize(ref cards, cards.Length * 2);
+                Array.Resize(ref carddeck, carddeck.Length * 2);
             }
             //add in items to the array
-            cards[currentIndex] = item;
+            carddeck[currentIndex] = item;
             //increment counter when card is added
             currentIndex++;
         }
 
+        /// <summary>
+        /// Remove a card from the deck
+        /// </summary>
+        /// <param name="item"></param>
         public void Remove(int item)
         {
             for (int i = item; i < currentIndex; i++)
             {
-                cards[i] = cards[i + 1];
+                carddeck[i] = carddeck[i + 1];
             }
-            cards[currentIndex] = default;
+            //default makes the value of the variable an int
+            carddeck[currentIndex] = default;
             currentIndex--; 
         }
 
+        /// <summary>
+        /// Count the cards in the deck
+        /// </summary>
+        /// <returns></returns>
         public int Count()
         {
-            return counter;
+            return currentIndex;
         }
 
 
@@ -46,7 +58,7 @@ namespace Collections
             for (int i = 0; i < currentIndex; i++)
             {
                 //return each item one by one
-                yield return cards[i];
+                yield return carddeck[i];
             }
         }
 

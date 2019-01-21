@@ -21,19 +21,19 @@ namespace Collections
         }
         public enum CardValue
         {
-            ace,
-            two,
-            three,
-            four,
-            five,
-            six,
-            seven,
-            eight,
-            nine,
-            ten,
-            jack,
-            queen,
-            king
+            Ace,
+            Two,
+            Three,
+            Four,
+            Five,
+            Six,
+            Seven,
+            Eight,
+            Nine,
+            Ten,
+            Jack,
+            Queen,
+            King
         }
     }
 }
