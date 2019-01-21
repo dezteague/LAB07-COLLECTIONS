@@ -67,6 +67,7 @@ namespace Collections
             cardThirteen.Value = Card.CardValue.King;
             cardThirteen.suit = Card.Suit.Diamonds;
 
+            //add cards to the deck
             Deck.Add(cardOne);
             Deck.Add(cardTwo);
             Deck.Add(cardThree);
@@ -86,6 +87,7 @@ namespace Collections
                 Console.WriteLine($"{item.Value} of {item.suit}");
             }
 
+            //deal cards evenly between player 1 and player 2, the rest stays with the dealer
             Console.WriteLine("");
             Console.WriteLine("Deal cards:");
             Console.WriteLine("");
@@ -109,15 +111,24 @@ namespace Collections
                 }
             }
 
+            //Remove one card from the deck
             Console.WriteLine("");
             Console.WriteLine("Removing Ten of Hearts");
 
+            //card can only be removed if it actually exists in the deck
             Card removefromdeck = Deck.Remove(cardTen);
+            if (removefromdeck != null)
+            {
+                Console.WriteLine($"{removefromdeck.Value} of {removefromdeck.suit}");
 
+            }
+
+            //show deck counter after removal
             Console.WriteLine("");
             Console.WriteLine($"Number of cards left: {Deck.Count()}");
             Console.WriteLine("");
 
+            //display leftover cards
             foreach (Card item in Deck)
             {
                 Console.WriteLine($"{item.Value} of {item.suit}");
